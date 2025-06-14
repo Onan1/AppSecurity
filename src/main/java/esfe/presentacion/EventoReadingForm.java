@@ -35,19 +35,16 @@ public class EventoReadingForm extends JDialog {
         try {
             eventoDAO = new EventoDAO();
 
-            // SIEMPRE crear la UI manualmente para evitar problemas
             createUIManually();
 
             setContentPane(mainPanel);
             setModal(true);
             setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
-            // Configurar la ventana
             setSize(900, 600);
             setLocationRelativeTo(mainForm);
             setResizable(true);
 
-            // Inicializar componentes
             initTable();
             setupEventListeners();
             fillTable("");
@@ -69,7 +66,6 @@ public class EventoReadingForm extends JDialog {
         mainPanel = new JPanel(new BorderLayout());
         mainPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
-        // === PANEL SUPERIOR PARA BÚSQUEDA ===
         JPanel searchPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         searchPanel.setBorder(BorderFactory.createTitledBorder("Búsqueda"));
 
@@ -80,13 +76,11 @@ public class EventoReadingForm extends JDialog {
         searchPanel.add(txtSearch);
         searchPanel.add(btnSearch);
 
-        // === TABLA CON SCROLL ===
         tblEventos = new JTable();
         JScrollPane scrollPane = new JScrollPane(tblEventos);
         scrollPane.setBorder(BorderFactory.createTitledBorder("Lista de Eventos"));
         scrollPane.setPreferredSize(new Dimension(850, 400));
 
-        // === PANEL DE BOTONES ===
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 15, 15));
         buttonPanel.setBorder(BorderFactory.createEtchedBorder());
 
@@ -95,17 +89,14 @@ public class EventoReadingForm extends JDialog {
         btnDelete = new JButton("Eliminar");
         btnCancel = new JButton("Cerrar");
 
-        // Configurar botones con apariencia uniforme (igual al botón de buscar)
         Dimension buttonSize = new Dimension(120, 35);
 
-        // Aplicar el mismo estilo a todos los botones
+
         JButton[] buttons = {btnCreate, btnUpdate, btnDelete, btnCancel, btnSearch};
         for (JButton button : buttons) {
             button.setPreferredSize(buttonSize);
-            // Remover colores personalizados para que todos tengan la apariencia por defecto
             button.setBackground(null);
             button.setForeground(null);
-            // Opcional: aplicar el Look and Feel del sistema
             button.setOpaque(false);
         }
 
@@ -114,7 +105,6 @@ public class EventoReadingForm extends JDialog {
         buttonPanel.add(btnDelete);
         buttonPanel.add(btnCancel);
 
-        // === AGREGAR COMPONENTES AL PANEL PRINCIPAL ===
         mainPanel.add(searchPanel, BorderLayout.NORTH);
         mainPanel.add(scrollPane, BorderLayout.CENTER);
         mainPanel.add(buttonPanel, BorderLayout.SOUTH);

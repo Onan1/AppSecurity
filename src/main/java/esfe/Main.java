@@ -6,7 +6,6 @@ import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) {
-        // Configurar Look and Feel del sistema
         SwingUtilities.invokeLater(() -> {
             try {
                 MainForm mainForm = new MainForm();

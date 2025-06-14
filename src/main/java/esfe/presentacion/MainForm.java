@@ -26,7 +26,7 @@ public class MainForm extends JFrame {
         JMenuBar menuBar = new JMenuBar();
         setJMenuBar(menuBar);
 
-        // ========== MENU PERFIL ==========
+        // MENU PERFIL
         JMenu menuPerfil = new JMenu("Perfil");
         menuBar.add(menuPerfil);
 
@@ -68,7 +68,7 @@ public class MainForm extends JFrame {
             }
         });
 
-        // ========== MENU MANTENIMIENTO ==========
+        // MENU MANTENIMIENTO
         JMenu menuMantenimiento = new JMenu("Mantenimiento");
         menuBar.add(menuMantenimiento);
 
@@ -86,7 +86,7 @@ public class MainForm extends JFrame {
             }
         });
 
-        // ========== MENU ITEM EVENTOS ==========
+        // MENU ITEM EVENTOS
         JMenuItem itemEventos = new JMenuItem("Eventos");
         menuMantenimiento.add(itemEventos);
         itemEventos.addActionListener(e -> {

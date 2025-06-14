@@ -31,14 +31,12 @@ public class EventoWriteForm extends JDialog {
 
             eventoDAO = new EventoDAO();
 
-            // SIEMPRE crear la UI manualmente
             createUIManually();
 
             setContentPane(mainPanel);
             setModal(true);
             setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
-            // Configurar ventana
             setSize(400, 200);
             setLocationRelativeTo(mainForm);
             setResizable(false);
@@ -64,12 +62,10 @@ public class EventoWriteForm extends JDialog {
         mainPanel = new JPanel(new BorderLayout());
         mainPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
-        // === PANEL DEL FORMULARIO ===
         JPanel formPanel = new JPanel(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(8, 8, 8, 8);
 
-        // Etiqueta y campo Nombre
         gbc.gridx = 0; gbc.gridy = 0;
         gbc.anchor = GridBagConstraints.WEST;
         JLabel lblNombre = new JLabel("Nombre del Evento *:");
@@ -108,13 +104,10 @@ public class EventoWriteForm extends JDialog {
         btnOK.setPreferredSize(buttonSize);
         btnCancel.setPreferredSize(buttonSize);
 
-        // Los botones usarán la apariencia por defecto del sistema
-        // Se eliminaron las configuraciones de colores personalizados
 
         buttonPanel.add(btnOK);
         buttonPanel.add(btnCancel);
 
-        // === AGREGAR AL PANEL PRINCIPAL ===
         mainPanel.add(formPanel, BorderLayout.CENTER);
         mainPanel.add(buttonPanel, BorderLayout.SOUTH);
 
@@ -140,7 +133,6 @@ public class EventoWriteForm extends JDialog {
             }
         });
 
-        // Enter en el último campo para confirmar
         txtLugar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -171,7 +163,6 @@ public class EventoWriteForm extends JDialog {
 
         setValuesControls(this.evento);
 
-        // Enfocar el primer campo editable
         if (cud != CUD.DELETE) {
             SwingUtilities.invokeLater(() -> txtNombre.requestFocusInWindow());
         }
